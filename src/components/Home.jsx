@@ -3,7 +3,7 @@ import AboutMe from "./AboutMe";
 
 const Home = () => {
     return(
-        <div>
+        <div className="bg-black text-white">
             <AboutMe />
         </div>
     )
