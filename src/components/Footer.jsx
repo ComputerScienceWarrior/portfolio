@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
     return(
-        <div className="flex absolute bottom-0 p-5 bg-black text-white w-full justify-evenly">
-            <div className="w-80 border border-1 p-10 rounded-lg text-center">
+        <div className="flex fixed bottom-0 p-5 bg-black text-white w-full justify-evenly">
+            <div className="w-80 border border-1 p-5 rounded-lg text-center">
                 <p className="underline">My Favorite Resources</p>
                 <ul>
                     <li><a href="https://stackoverflow.com" target="_blank" className="italic font-bold">StackOverFlow</a></li>
