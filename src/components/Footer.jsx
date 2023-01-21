@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Footer = () => {
+    const [showFooter, setShowFooter] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+          if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+            setShowFooter(true);
+          } else {
+            setShowFooter(false);
+          }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }, []);
+
     return(
+        showFooter &&
         <div className="flex fixed bottom-0 h-30 p-5 bg-black text-white w-full justify-evenly">
             <div className="w-80 border border-1 p-5 rounded-lg text-center">
                 <p className="underline">My Favorite Resources</p>
