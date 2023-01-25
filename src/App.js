@@ -1,10 +1,11 @@
 import './App.css';
 import Home from './components/Home';
-import ContactMe from './components/ContactMe'
-import AboutMe from './components/AboutMe'
+import ContactMe from './components/ContactMe';
+import AboutMe from './components/AboutMe';
+import Projects from './components/Projects';
 import Error from './components/Error';
 import Navigation from './components/Navigation';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutMe />} />
         <Route path="/contact" element={<ContactMe />} />
+        <Route path="/projects" element={<Projects />} />
         <Route path="https://github.com/ComputerScienceWarrior" />
         <Route path="https://bobbyhadz.com" />
         <Route path="https://youtube.com" />
