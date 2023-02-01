@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Footer = () => {
+    const [isVisible, setIsVisible] = useState(true);
+
+    useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > 20) {
+          setIsVisible(false);
+        } else {
+          setIsVisible(true);
+        }
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return(
-        <div className="flex fixed bottom-0 h-30 p-5 bg-black text-white w-full justify-evenly">
+        <div className={`${isVisible ? 'flex fixed bottom-0 h-30 p-5 bg-black text-white w-full justify-evenly': 'hidden'}`}>
             <div className="w-80 border border-1 p-5 rounded-lg text-center">
                 <p className="underline">My Favorite Resources</p>
                 <ul>
