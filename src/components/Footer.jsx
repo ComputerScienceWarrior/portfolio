@@ -1,25 +1,23 @@
 import React, { useState, useEffect } from "react";
 
 const Footer = () => {
-  const [showFooter, setShowFooter] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
-        setShowFooter(true);
-      } else {
-        setShowFooter(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > 20) {
+          setIsVisible(false);
+        } else {
+          setIsVisible(true);
+        }
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return(
-        showFooter ?
-        <div className="flex fixed bottom-0 h-30 p-5 bg-black text-white w-full justify-evenly">
+        <div className={`${isVisible ? 'flex fixed bottom-0 h-30 p-5 bg-black text-white w-full justify-evenly': 'hidden'}`}>
             <div className="w-80 border border-1 p-5 rounded-lg text-center">
                 <p className="underline">My Favorite Resources</p>
                 <ul>
@@ -35,8 +33,7 @@ const Footer = () => {
                     <li><a href="https://github.com/ComputerScienceWarrior" target="_blank" className="italic font-bold hover:text-green-500">Github.com</a></li>
                 </ul>
             </div>
-        </div>:
-        null
+        </div>
     )
 }
 
