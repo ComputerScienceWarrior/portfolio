@@ -2,6 +2,7 @@ import * as React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Box, ChakraProvider } from '@chakra-ui/react';
 import Home from './components/Home/Home';
+import Portfolio from './components/Portfolio/Portfolio';
 import Portfolios from './components/Portfolios/Portfolios';
 import Resume from './components/Resume/Resume';
 import About from './components/About/About';
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/portfolios" element={<Portfolios />} />
+            <Route path="/portfolio/:id" element={<Portfolio />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/about" element={<About />} />
           </Routes>
